@@ -19,7 +19,8 @@ $(document).ready(() => {
                     $('#place_name').html(data.coordinates.place_name);
                     $('#weather_current_summary').html(data.weather.currently.summary);
                     $('#weather_summary').html(data.weather.summary);
-                    $('#weather_current_tmp').html(data.weather.currently.temperature);
+                    $('#weather_current_tmp').html(`Current Temperature :${data.weather.currently.temperature} \ 
+                    feels like :${data.weather.currently.apparentTemperature}`);
                 }
                 else {
                     $('#weather_summary').html(data.weather.summary);

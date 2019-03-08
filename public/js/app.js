@@ -12,7 +12,7 @@ $(document).ready(() => {
         $('#place_name').html('');
         $('#weather_summary').html('');
         $('#weather_current_tmp').html('');
-        fetch(`weather?location=${loc.value}`).then((response) => {
+        fetch(`/weather?location=${loc.value}`).then((response) => {
             response.json().then((data) => {
                 console.log(data);
                 if (data.coordinates !== null) {

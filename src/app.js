@@ -5,10 +5,10 @@ const geo = require('./geocode');
 const forecast = require('./forecast');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT||3000;  // to add heroku port
 const viewsPAth = path.join(__dirname, '..', 'templates', 'views');
 const partialsPath = path.join(__dirname, '../templates/partials')
-
+//
 
 // set up handlebars
 app.set('view engine', 'hbs');
@@ -64,3 +64,4 @@ app.get('*', (req, res) => {
 app.listen(port, () => {
     console.log(`listening on port ${port}`);
 })
+

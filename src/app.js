@@ -23,18 +23,10 @@ app.use(express.static(publicPath));
 
 //Set up dynamic directory to serve
 app.get('', (req, res) => {
-    res.render('index', { name: 'hayouni', age: 28 });
+    res.render('index');
 })
 
-app.get('/about', (req, res) => {
-    res.render('about', {
-        name: 'hayouni',
-        job: 'software eng'
-    })
-})
-app.get('/help', (req, res) => {
-    res.render('help', { name: 'hayouni', age: 28 });
-})
+
 
 //weather page
 app.get('/weather', (req, res) => {
@@ -52,6 +44,23 @@ app.get('/weather', (req, res) => {
             });
         })
     })
+})
+app.get('/weatherAutoLocate', (req, res) => {
+    console.log(req.query.lat,req.query.long)
+    if (!req.query.lat) {
+        return res.send('No Location was found');
+    }
+    data={lat:req.query.lat,long:req.query.long}
+    
+        forecast({lat:req.query.lat,long:req.query.long}, (err, weather) => {
+            console.log(weather);
+            res.send( {
+                location: req.query.location,
+                coordinates: data,
+                weather: weather
+            });
+        })
+    
 })
 //404  not found page
 app.get('*', (req, res) => {

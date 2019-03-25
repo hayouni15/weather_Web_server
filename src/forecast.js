@@ -19,7 +19,7 @@ if(coord===null)
                 else {
                     console.log(res.statusCode);
                     console.log(body.daily.summary);
-                    callback(null,{summary:body.daily.summary,currently:body.currently});
+                    callback(null,{summary:body.daily.summary,currently:body.currently,hourly:body.hourly,daily:body.daily});
                     console.log(`it is currently ${body.currently.temperature} degress. there is ${body.currently.precipProbability} change of rain`);
                 }
             })

@@ -2,34 +2,67 @@
 <html>
 
 <head>
+
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="./js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
     <title>weather</title>
     <link rel="icon" href="/img/weather.png">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<script src="mustache/Templates.js"></script>
 </head>
 
 <body>
-    <div style="display:-webkit-box">
-        <img class="portrait" src="/img/weather.png">
-        <p style="padding-top:41px;" id="place_name">{{coordinates.place_name}}</p>
+    <!-- Status Bar -->
+    <div id="status">
+        <div id="weather_summary"></div>
     </div>
+    <!-- Current Weather -->
+    <div id="current" class="wrapper">
+        <nav>
+            <button id="locateBtn">
+                <i class="fa fa-location-arrow" aria-hidden="true"></i>
+            </button>
+        
+            <form>
+                <input id="loc" placeholder="location">
+                <button>submit</button>
+            </form>
 
-    <div class="main">
-        {{>header}}
-        <form>
-            <input id="loc" placeholder="location">
-            <button >submit</button>
-        </form>
-        <p id="weather_summary"></p>
-        <p id="weather_current_summary"></p>
-        <p id="weather_current_tmp">  </p>
+        </nav>
+
+        <h1 class="location" id="place_name">Chicago, IL</h1>
+        <h2 class="date" id="date">Sunday, January 1, 2017</h2>
+        <div class="weatherIcon" id="weatherIcon">
+            <canvas id="iconBig" width="128" height="128"></canvas>
+        </div>
+        <p class="temp" id="temp">72</p>
+        <p class="conditions" id="conditions">Sunny</p>
+    </div>
+    <!-- Future Forecast -->
+    <div id="future" class="wrapper">
+    
+
+   
+       
+
+
+
+
     </div>
     <footer>
-        {{>footer}}
+        <p id="lastUpdated">Last updated at </p>
+        <p>Created by <a href="http://hayouni.com/" title="Visit Portfolio Site" target="_blank">A.Hayouni</a> | Weather
+            data from <a href="https://www.wunderground.com/" title="Wunderground.com"
+                target="_blank">https://api.darksky.net</a></p>
     </footer>
-
 </body>
+
 
 
 </html>

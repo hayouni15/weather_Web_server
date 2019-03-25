@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link rel="stylesheet" href="css/styles.css" >
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="./js/app.js"></script>
 
+<head>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./js/app.js"></script>
+    <title>weather</title>
+    <link rel="icon" href="/img/weather.png">
 </head>
 
 <body>
-    {{>header}}
+    <div style="display:-webkit-box">
+        <img class="portrait" src="/img/weather.png">
+        <p style="padding-top:41px;">{{coordinates.place_name}}</p>
+    </div>
 
-<h1>404 page</h1>
+    <div class="main">
+        {{>header}}
+        <p>{{weather.summary}}</p>
+    </div>
+    <footer>
+        {{>footer}}
+    </footer>
+
 </body>
-<footer>
-{{>footer}}
-</footer>
+
 
 </html>
